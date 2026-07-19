@@ -1,11 +1,45 @@
-<html>
-    <head>
-        <title>
-            Arjita Pandey
-        </title>
-        <link rel="stylesheet" href="styles.css">
-    </head>
-    <body>
-        hiiiiii this is my first project
-    </body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trial Log</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="wrap">
+      <a href="#" class="brand">
+        <span class="brand-mark">§</span>
+        <span class="brand-text">Trial Log</span>
+      </a>
+      <span class="brand-sub">clinical research notes</span>
+    </div>
+  </header>
+
+  <main class="wrap">
+
+    <!-- LIST VIEW -->
+    <section id="list-view">
+      <div id="post-grid" class="post-grid"></div>
+    </section>
+
+    <!-- DETAIL VIEW -->
+    <section id="detail-view" class="detail-view" hidden>
+      <a href="#" class="back-link">&larr; back to log</a>
+      <article id="post-detail"></article>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <span id="record-count"></span>
+    </div>
+  </footer>
+
+  <script src="data.js"></script>
+  <script src="script.js"></script>
+</body>
 </html>

@@ -1,3 +1,228 @@
+/* ---------- tokens ---------- */
+:root{
+  --paper: #1d2023;    /* page background */
+  --panel: #1B2124;    /* thumbs / subtle fills */
+  --ink: #E8E6DF;      /* primary text, warm off-white */
+  --ink-soft: #8C9298; /* secondary text */
+  --rule: #2B3236;     /* hairlines */
+  --accent: #6FB8C9;   /* clinical blue-teal, brightened for dark bg */
+  --accent-soft: #1E2C30;
+  --flag: #E08862;     /* used sparingly, e.g. dates/index marks */
+  --serif: Georgia, "Iowan Old Style", "Source Serif 4", serif;
+  --mono: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+}
+
+*{ box-sizing: border-box; }
+
+html{ background: var(--paper); }
+
 body{
-    background-color: rgb(78 14 14 / 56%);
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--serif);
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+
+.wrap{
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+a{ color: inherit; }
+
+/* ---------- header ---------- */
+.site-header{
+  border-bottom: 1px solid var(--rule);
+  padding: 28px 0 20px;
+}
+.site-header .wrap{
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.brand{
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  text-decoration: none;
+}
+.brand-mark{
+  font-family: var(--mono);
+  color: var(--accent);
+  font-size: 1.1rem;
+}
+.brand-text{
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+.brand-sub{
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+/* ---------- list / cards ---------- */
+.post-grid{
+  padding: 36px 0 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.post-card{
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  padding: 22px 0;
+  border-bottom: 1px solid var(--rule);
+  position: relative;
+}
+.post-card:first-child{
+  padding-top: 0;
+}
+
+.post-card .card-index{
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  color: var(--flag);
+  letter-spacing: 0.04em;
+}
+
+.post-card .card-date{
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  color: var(--ink-soft);
+  letter-spacing: 0.04em;
+  margin-left: 10px;
+}
+
+.post-card .card-title{
+  margin: 10px 0 6px;
+  font-size: 1.3rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  transition: color 0.15s ease;
+}
+
+.post-card:hover .card-title{
+  color: var(--accent);
+}
+
+.post-card .card-body{
+  display: flex;
+  gap: 18px;
+  align-items: flex-start;
+}
+
+.post-card .card-thumb{
+  flex: none;
+  width: 84px;
+  height: 84px;
+  object-fit: cover;
+  border: 1px solid var(--rule);
+  background: var(--accent-soft);
+}
+
+.post-card .card-excerpt{
+  color: var(--ink-soft);
+  font-size: 0.98rem;
+  margin: 0;
+}
+
+.post-card .card-more{
+  display: inline-block;
+  margin-top: 10px;
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  color: var(--accent);
+  letter-spacing: 0.03em;
+}
+
+.empty-state{
+  color: var(--ink-soft);
+  font-style: italic;
+  padding: 40px 0;
+}
+
+/* ---------- detail view ---------- */
+.detail-view{
+  padding: 36px 0 60px;
+}
+
+.back-link{
+  display: inline-block;
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  color: var(--accent);
+  text-decoration: none;
+  margin-bottom: 28px;
+  letter-spacing: 0.02em;
+}
+.back-link:hover{ text-decoration: underline; }
+
+.post-detail .detail-date{
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  color: var(--flag);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.post-detail .detail-title{
+  font-size: 2rem;
+  line-height: 1.2;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  margin: 10px 0 24px;
+}
+
+.post-detail .detail-image{
+  width: 100%;
+  max-height: 420px;
+  object-fit: cover;
+  border: 1px solid var(--rule);
+  margin-bottom: 28px;
+}
+
+.post-detail .detail-content p{
+  margin: 0 0 20px;
+  font-size: 1.08rem;
+  color: var(--ink);
+}
+
+/* ---------- footer ---------- */
+.site-footer{
+  border-top: 1px solid var(--rule);
+  padding: 18px 0 40px;
+}
+.site-footer .wrap{
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  color: var(--ink-soft);
+  letter-spacing: 0.03em;
+}
+
+/* ---------- focus states ---------- */
+a:focus-visible{
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* ---------- responsive ---------- */
+@media (max-width: 480px){
+  .post-card .card-thumb{
+    width: 64px;
+    height: 64px;
+  }
+  .post-detail .detail-title{
+    font-size: 1.6rem;
+  }
+  .brand-sub{ display: none; }
 }
